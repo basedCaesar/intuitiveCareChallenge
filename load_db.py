@@ -26,7 +26,6 @@ def setup_database():
     new_db_url = admin_url._replace(database=db_name)
     engine = create_engine(new_db_url)
 
-    # A OPÇÃO 2 ENTRA AQUI:
     with open('sql/setup_db.sql', 'r') as f:
         sql_script = f.read()
 

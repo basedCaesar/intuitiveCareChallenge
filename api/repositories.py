@@ -19,17 +19,18 @@ def get_operadora_by_cnpj(db: Session, cnpj: str):
     return db.query(models.Operadora).filter(models.Operadora.cnpj == cnpj).first()
 
 def get_despesas_by_cnpj(db: Session, cnpj: str):
+    # Garante que o CNPJ consultado não tenha espaços ou símbolos
+    cnpj_limpo = "".join(filter(str.isdigit, str(cnpj)))
+    
     return db.query(
         models.Despesa.ano,
         models.Despesa.trimestre,
         func.sum(models.Despesa.valor_despesas).label("valor_despesas")
     ).filter(
-        models.Despesa.cnpj == cnpj
+        models.Despesa.cnpj == cnpj_limpo
     ).group_by(
         models.Despesa.ano, 
         models.Despesa.trimestre
-    ).having(
-        func.sum(models.Despesa.valor_despesas) > 0
     ).order_by(
         models.Despesa.ano.desc(), 
         models.Despesa.trimestre.desc()

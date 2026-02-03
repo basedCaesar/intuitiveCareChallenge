@@ -2,6 +2,14 @@ from fastapi import HTTPException
 from sqlalchemy.orm import Session
 import repositories
 from decimal import Decimal, ROUND_HALF_UP
+from datetime import datetime, timedelta
+
+_stats_cache = {
+    "data": None,
+    "expires_at": None
+}
+
+CACHE_DURATION_MINUTES = 60
 
 def list_operadoras_service(db: Session, page: int, limit: int, search: str):
     try:
@@ -27,6 +35,12 @@ def get_operadora_history_service(db: Session, cnpj: str):
     return repositories.get_despesas_by_cnpj(db, cnpj)
 
 def get_estatisticas_service(db: Session):
+    global _stats_cache
+    
+    now = datetime.now()
+    if _stats_cache["data"] and _stats_cache["expires_at"] > now:
+        return _stats_cache["data"]
+
     try:
         agregados = repositories.get_all_agregados(db)
         
@@ -37,8 +51,6 @@ def get_estatisticas_service(db: Session):
         for row in agregados:
             valor = row.valor_total if row.valor_total is not None else Decimal(0)
             qtd = row.qtd_trimestres if row.qtd_trimestres and row.qtd_trimestres > 0 else 1
-            
-
             media_calc = valor / qtd
 
             dados_lista.append({
@@ -48,18 +60,22 @@ def get_estatisticas_service(db: Session):
                 "media_trimestral": Decimal(str(media_calc)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
             })
 
-        if not dados_lista:
-             return {"total_geral": Decimal("0.00"), "media_geral": Decimal("0.00"), "top_5": []}
-
         total_geral = sum(d["valor_despesas"] for d in dados_lista)
         media_geral = total_geral / len(dados_lista)
         top_5 = sorted(dados_lista, key=lambda x: x["valor_despesas"], reverse=True)[:5]
         
-        return {
+        result = {
             "total_geral": total_geral.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP),
             "media_geral": media_geral.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP),
             "top_5": top_5
         }
+
+        # Atualiza o cache
+        _stats_cache["data"] = result
+        _stats_cache["expires_at"] = now + timedelta(minutes=CACHE_DURATION_MINUTES)
+        
+        return result
+
     except Exception as e:
         print(f"LOG_ERRO_ESTATISTICAS: {e}")
         raise HTTPException(status_code=500, detail=f"Erro no servidor: {str(e)}")
