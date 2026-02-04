@@ -1,0 +1,230 @@
+{
+	"info": {
+		"name": "Intuitive Care - Operadoras API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar Operadoras",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/operadoras?page=1&limit=10&search=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"operadoras"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "search",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Lista Completa - Página 1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/operadoras?page=1&limit=10&search=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"operadoras"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"body": "{\n    \"data\": [\n        {\n            \"cnpj\": \"19541931000125\",\n            \"razao_social\": \"18 DE JULHO ADMINISTRADORA DE BENEFÍCIOS LTDA\",\n            \"registro_ans\": \"419761\",\n            \"uf\": \"MG\",\n            \"modalidade\": \"Administradora de Benefícios\"\n        },\n        {\n            \"cnpj\": \"22869997000153\",\n            \"razao_social\": \"2B ODONTOLOGIA OPERADORA DE PLANOS ODONTOLÓGICOS LTDA\",\n            \"registro_ans\": \"421545\",\n            \"uf\": \"SP\",\n            \"modalidade\": \"Odontologia de Grupo\"\n        },\n        {\n            \"cnpj\": \"27452545000195\",\n            \"razao_social\": \"2CARE OPERADORA DE SAÚDE LTDA.\",\n            \"registro_ans\": \"421421\",\n            \"uf\": \"SP\",\n            \"modalidade\": \"Medicina de Grupo\"\n        },\n        {\n            \"cnpj\": \"13138885000131\",\n            \"razao_social\": \"A.P.S. ADMINISTRADORA DE BENEFÍCOS LTDA.\",\n            \"registro_ans\": \"418030\",\n            \"uf\": \"SP\",\n            \"modalidade\": \"Administradora de Benefícios\"\n        },\n        {\n            \"cnpj\": \"17505793000101\",\n            \"razao_social\": \"ABERTTA SAÚDE - ASSOCIAÇÃO BENEFICENTE DOS EMPREGADOS DA ARCELORMITTAL NO BRASIL\",\n            \"registro_ans\": \"314668\",\n            \"uf\": \"MG\",\n            \"modalidade\": \"Autogestão\"\n        },\n        {\n            \"cnpj\": \"17687511000126\",\n            \"razao_social\": \"ABPLUS ADMINISTRADORA DE BENEFÍCIOS LTDA.\",\n            \"registro_ans\": \"419621\",\n            \"uf\": \"RJ\",\n            \"modalidade\": \"Administradora de Benefícios\"\n        },\n        {\n            \"cnpj\": \"10458298000131\",\n            \"razao_social\": \"AD SALUTE ADMINISTRADORA DE BENEFÍCIOS LTDA\",\n            \"registro_ans\": \"418901\",\n            \"uf\": \"RJ\",\n            \"modalidade\": \"Administradora de Benefícios\"\n        },\n        {\n            \"cnpj\": \"58280182000181\",\n            \"razao_social\": \"ADC ADMINISTRADORA DE BENEFICIOS LTDA\",\n            \"registro_ans\": \"424293\",\n            \"uf\": \"SP\",\n            \"modalidade\": \"Administradora de Benefícios\"\n        },\n        {\n            \"cnpj\": \"28315826000169\",\n            \"razao_social\": \"ADM LIFE - ADMINISTRADORA DE BENEFÍCIOS LTDA.\",\n            \"registro_ans\": \"421553\",\n            \"uf\": \"SP\",\n            \"modalidade\": \"Administradora de Benefícios\"\n        },\n        {\n            \"cnpj\": \"07867825000157\",\n            \"razao_social\": \"ADMSERV BENEFÍCIOS E SERVIÇOS LTDA\",\n            \"registro_ans\": \"416932\",\n            \"uf\": \"SP\",\n            \"modalidade\": \"Administradora de Benefícios\"\n        }\n    ],\n    \"metadata\": {\n        \"total\": 1110,\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_pages\": 111\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Estatísticas Gerais",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/estatisticas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"estatisticas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Estatísticas Completas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/estatisticas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"estatisticas"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"body": "{\n    \"total_geral\": \"50740514013.00\",\n    \"media_geral\": \"64391515.24\",\n    \"top_5\": [\n        {\n            \"cnpj\": \"92693118000160\",\n            \"razao_social\": \"BRADESCO SAÚDE S.A.\",\n            \"valor_despesas\": \"24386517438.00\",\n            \"media_trimestral\": \"8128839146.00\"\n        },\n        {\n            \"cnpj\": \"62638374000194\",\n            \"razao_social\": \"CENTRO TRASMONTANO DE SAO PAULO\",\n            \"valor_despesas\": \"2557370268.00\",\n            \"media_trimestral\": \"852456756.00\"\n        },\n        {\n            \"cnpj\": \"63554067000198\",\n            \"razao_social\": \"HAPVIDA ASSISTENCIA MEDICA S.A.\",\n            \"valor_despesas\": \"1806454098.00\",\n            \"media_trimestral\": \"602151366.00\"\n        },\n        {\n            \"cnpj\": \"73809352000166\",\n            \"razao_social\": \"FUNDAÇÃO SAÚDE ITAÚ\",\n            \"valor_despesas\": \"1632633578.00\",\n            \"media_trimestral\": \"544211192.67\"\n        },\n        {\n            \"cnpj\": \"62465117000106\",\n            \"razao_social\": \"FUNDAÇÃO CESP\",\n            \"valor_despesas\": \"1085135985.00\",\n            \"media_trimestral\": \"361711995.00\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Detalhes da Operadora",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/operadoras/:cnpj",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"operadoras",
+						":cnpj"
+					],
+					"variable": [
+						{
+							"key": "cnpj",
+							"value": "62465117000106"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Detalhes Completos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/operadoras/62465117000106",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"operadoras",
+								"62465117000106"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"body": "{\n    \"cnpj\": \"62465117000106\",\n    \"razao_social\": \"FUNDAÇÃO CESP\",\n    \"registro_ans\": \"315478\",\n    \"uf\": \"SP\",\n    \"modalidade\": \"Autogestão\",\n    \"nome_fantasia\": \"VIVEST\",\n    \"logradouro\": \"ALAMEDA SANTOS\",\n    \"numero\": \"2477\",\n    \"complemento\": \"10 º ANDAR\",\n    \"bairro\": \"CERQUEIRA CESAR\",\n    \"cidade\": \"São Paulo\",\n    \"cep\": \"1419907\",\n    \"ddd\": \"11.0\",\n    \"telefone\": \"30683100.0\",\n    \"fax\": \"30683049.0\",\n    \"endereco_eletronico\": \"saude@vivest.com.br\",\n    \"representante\": \"WALTER MENDES DE OLIVEIRA FILHO\",\n    \"cargo_representante\": \"DIRETOR PRESIDENTE\",\n    \"regiao_comercializacao\": \"2.0\",\n    \"data_registro_ans\": \"1998-12-29\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Histórico de Despesas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/operadoras/:cnpj/despesas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"operadoras",
+						":cnpj",
+						"despesas"
+					],
+					"variable": [
+						{
+							"key": "cnpj",
+							"value": "62465117000106"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Histórico Completo",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/operadoras/62465117000106/despesas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"operadoras",
+								"62465117000106",
+								"despesas"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"body": "[\n    {\n        \"trimestre\": 3,\n        \"ano\": 2025,\n        \"valor_despesas\": \"1078288049.00\"\n    },\n    {\n        \"trimestre\": 2,\n        \"ano\": 2025,\n        \"valor_despesas\": \"2165855.00\"\n    },\n    {\n        \"trimestre\": 1,\n        \"ano\": 2025,\n        \"valor_despesas\": \"2167392.00\"\n    }\n]"
+				}
+			]
+		}
+	]
+}
